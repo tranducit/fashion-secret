@@ -11,7 +11,7 @@ package {
 
 	// Flash CS3 Document Class. 
 	public class Main extends MovieClip {
-		private var gateway:String = "http://localhost/amfphp/gateway.php";
+		private var gateway:String = "http://localhost/fashion/amfphp/gateway.php";
 		private var connection:NetConnection;
 		private var responder:Responder;
 		
