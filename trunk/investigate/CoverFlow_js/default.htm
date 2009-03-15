@@ -1,0 +1,107 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+	<script language="javascript" src="rwmUtil.js"></script>
+	<script language="javascript" src="rwmPodNav.js"></script>
+	<script language="javascript" src="rwmCoverFlow.js"></script>
+	<style>
+		body { font-family: verdana; font-size: 11px; }
+		h1 { font-family: arial; font-weight: bold; font-size: 14px; }
+	</style>
+</head>
+<body>
+
+<h1>rwmCoverFlow + rwmPodNav v2.0</h1>
+<p>
+Hiya. I've worked plenty more on my "CoverFlow" javascript and present the first release here. The CoverFlow and the PodNav items below are 2 entirely separate modules which just happen to work really nicely together. You can happily use either one without the other. The CoverFlow can be as wide as you want and use any size (square) images. It calls back to a function of your choice so you write the code that executes when a cover is clicked. If you use this on your site or if you improve it then please let me know <a href="raith@raith.co.uk">raith@raith.co.uk</a>
+</p>
+
+<div style="border: solid 2px #ccc; float: left; padding: 10px;">
+
+	<div id="CoverFlow1" style="background-color: #fff; position: absolute;">
+		<img src="Covers/01.jpg" title="Cover xxx" />
+		<img src="Covers/02.jpg" title="Cover xxx" />
+		<img src="Covers/03.jpg" title="Cover xxx" />
+		<img src="Covers/04.jpg" title="Cover xxx" />
+		<img src="Covers/05.jpg" title="Cover xxx" />
+		<img src="Covers/06.jpg" title="Cover xxx" />
+		<img src="Covers/07.jpg" title="Cover xxx" />
+		<img src="Covers/08.jpg" title="Cover xxx" />
+		<img src="Covers/09.jpg" title="Cover xxx" />
+		<img src="Covers/10.jpg" title="Cover xxx" />
+		<img src="Covers/11.jpg" title="Cover xxx" />
+		<img src="Covers/12.jpg" title="Cover xxx" />
+		<img src="Covers/13.jpg" title="Cover xxx" />
+		<img src="Covers/14.jpg" title="Cover xxx" />
+		<img src="Covers/15.jpg" title="Cover xxx" />
+		<img src="Covers/16.jpg" title="Cover xxx" />
+		<img src="Covers/17.jpg" title="Cover xxx" />
+		<img src="Covers/18.jpg" title="Cover xxx" />
+		<img src="Covers/19.jpg" title="Cover xxx" />
+		<img src="Covers/20.jpg" title="Cover xxx" />
+		<img src="Covers/21.jpg" title="Cover xxx" />
+		<img src="Covers/22.jpg" title="Cover xxx" />
+		<img src="Covers/23.jpg" title="Cover xxx" />
+		<img src="Covers/24.jpg" title="Cover xxx" />
+		<img src="Covers/25.jpg" title="Cover xxx" />
+		<img src="Covers/26.jpg" title="Cover xxx" />
+		<img src="Covers/27.jpg" title="Cover xxx" />
+		<img src="Covers/28.jpg" title="Cover xxx" />
+		<img src="Covers/29.jpg" title="Cover xxx" />
+		<img src="Covers/30.jpg" title="Cover xxx" />
+		<img src="Covers/31.jpg" title="Cover xxx" />
+		<img src="Covers/32.jpg" title="Cover xxx" />
+		<img src="Covers/33.jpg" title="Cover xxx" />
+		<img src="Covers/34.jpg" title="Cover xxx" />
+		<img src="Covers/35.jpg" title="Cover xxx" />
+		<img src="Covers/36.jpg" title="Cover xxx" />
+		<img src="Covers/37.jpg" title="Cover xxx" />
+		<img src="Covers/38.jpg" title="Cover xxx" />
+		<img src="Covers/39.jpg" title="Cover xxx" />
+		<img src="Covers/40.jpg" title="Cover xxx" />
+	</div>
+
+	<div id="ipoddiv" style="width: 150px; height: 150px; margin: 0px 175px;"></div>
+
+</div>
+
+<p style="clear: both; font-size: 10px;">These cover images were an arbitrary choice, lifted from Amazon.co.uk, and do not necessarily reflect my musical taste.</p>
+
+<script language="javascript">
+
+	// This is my CoverFlow callback function. This is called when a cover is clicked on...
+	function ccc (c)
+	{
+		alert("you clicked on Cover #" + c.CoverIndex);
+	}
+
+	var MyCoverFlowDiv = document.getElementById("CoverFlow1");
+	var ImageWidth = 160;
+	var ImageHeight = 160;
+	var CoverFlowWidth = 500;
+
+
+	// Instantiate the CoverFlow by pointing it at a DIV that contains IMGs...
+	var cf = new CoverFlow(MyCoverFlowDiv, ImageWidth, ImageHeight, CoverFlowWidth, "#fff", ccc);
+
+	// The CoverFlow Update method does not call itself. It's up to you to schedule this...
+	function update ()
+	{
+		cf.Update();
+		setTimeout("update()", 20);
+	}
+	update();
+
+	// And this is where I instantiate the PodNav controller.
+	// I pass in my CoverFlow object as a valid 'scroller object'...
+	pod1 = new rwmPodNav("ipoddiv", cf);
+	// ...and also set the ClickedXXX methods to perform sensible CoverFlow actions...
+	pod1.ClickedUp = function () { cf.GotoFirst(); };
+	pod1.ClickedDown = function () { cf.GotoLast(); };
+	pod1.ClickedLeft = function () { cf.Flip(-1); };
+	pod1.ClickedRight = function () { cf.Flip(1); };
+
+</script>
+
+</body>
+</html>
