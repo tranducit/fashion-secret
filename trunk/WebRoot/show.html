@@ -1,0 +1,225 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+
+    <title>我的衣服</title>
+
+    <link rel="stylesheet" href="static/styles/golden-extend/reset.css" type="text/css" media="screen, projection">
+    <link rel="stylesheet" href="static/styles/golden-extend/golden.css" type="text/css" media="screen, projection">
+    <link rel="stylesheet" href="static/styles/golden-extend/typography.css" type="text/css" media="screen, projection">
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.2.3/jquery.min.js"></script>
+    <!--script type="text/javascript" src="static/js/jquery-1.3.2.min.js"></script-->
+    
+    <link href="static/galleria/galleria.css" rel="stylesheet" type="text/css" media="screen">
+    <script type="text/javascript" src="static/galleria/jquery.galleria.js"></script>
+    
+    <script type="text/javascript" src="static/js/jquery.corner.js"></script>
+    <!--script type="text/javascript" src="static/js/Groject.ImageSwitch.min.101.js"></script-->
+    
+    <link href="static/styles/style.css" rel="stylesheet" type="text/css" media="screen">
+
+    <style type="text/css">
+        body{
+            background-color:#7FAF95;
+        }
+        
+        .main{
+            background-color:#fff;
+        }
+        
+        #nav {
+            margin: 4px 0 0 0;
+            padding: 0 0 0 10px;
+            list-style-type: none;
+            background-color:#7FAF95;
+            font-size:1.2em;
+            font-weight:700;
+            float: left;
+        }
+        
+        #nav li {
+            margin: 0;
+            padding: 0;
+            float: left;
+            width: 70px;
+        }
+        
+        .function{
+            background-color:#FFFF99;
+            margin: 5px 0 0 0;
+            padding: 5px 0 0 0;
+        }
+        .function p{
+            margin: 0 0 2px 0;
+            border-bottom: dotted 1px black;
+            padding: 2px 0 2px 0;
+            font-size:1.3em;
+            font-weight:bold;
+            text-align:center;
+        }
+        
+        .pictures{
+            overflow: visible;
+            border: solid 1px black;
+        }
+        .pictures img{
+            position: relative;
+            margin-top: 2em;
+        }
+        
+        .gallery_demo{width:660px;margin:0 auto;}
+        .gallery_demo li{width:68px;height:50px;border:3px double #111;margin: 0 2px;background:#000;}
+        .gallery_demo li div{left:240px}
+        .gallery_demo li div .caption{font:italic 0.7em/1.4 georgia,serif;}
+        
+        #main_image{margin:0 auto 0 auto;width:660px;}
+        #main_image img{margin-bottom:10px;width:660px;}
+    
+    </style>
+
+    <script type="text/javascript">
+    <!--
+    $(document).ready(function(){
+        $("#nav_div").corner('7px');
+        $(".function").each(function(){
+            $(this).corner('7px');
+        });
+
+		
+		$('.gallery_demo_unstyled').addClass('gallery_demo'); // adds new class name to maintain degradability
+		
+		$('ul.gallery_demo').galleria({
+			history   : true, // activates the history object for bookmarking, back-button etc.
+			clickNext : true, // helper for making the image clickable
+			insert    : '#main_image', // the containing selector for our main image
+			onImage   : function(image,caption,thumb) { // let's add some image effects for demonstration purposes
+				
+				// fade in the image & caption
+				image.css('display','none').fadeIn(1000);
+				caption.css('display','none').fadeIn(1000);
+				
+				// fetch the thumbnail container
+				var _li = thumb.parents('li');
+				
+				// fade out inactive thumbnail
+				_li.siblings().children('img.selected').fadeTo(500,0.3);
+				
+				// fade in active thumbnail
+				thumb.fadeTo('fast',1).addClass('selected');
+				
+				// add a title for the clickable image
+				image.attr('title','Next image >>');
+			},
+			onThumb : function(thumb) { // thumbnail effects goes here
+				
+				// fetch the thumbnail container
+				var _li = thumb.parents('li');
+				
+				// if thumbnail is active, fade all the way.
+				var _fadeTo = _li.is('.active') ? '1' : '0.3';
+				
+				// fade in the thumbnail when finnished loading
+				thumb.css({display:'none',opacity:_fadeTo}).fadeIn(1500);
+				
+				// hover effects
+				thumb.hover(
+					function() { thumb.fadeTo('fast',1); },
+					function() { _li.not('.active').children('img').fadeTo('fast',0.3); } // don't fade out if the parent is active
+				)
+			}
+		});
+	});
+    
+    // -->
+    </script>
+</head>
+<body>
+<div class="main">
+
+<div class="g960" style="height:100px;vertical-align:middle;">
+    <h1 style="margin: 30px 0 0 0;">iFashion - Your Fashion Stage</h1>
+</div>
+
+<div class="g960" id="nav_div" style="background-color:#7FAF95; height:25px">
+    <ul id="nav">
+        <li><a href="">首页</a></li>
+        <li><a href="">列表</a></li>
+        <li><a href="">搭配</a></li>
+        <li><a href="">设置</a></li>
+    </ul>
+</div>
+<div class="clear">&nbsp;</div>
+
+<div class="g720">
+    <div class="pictures">
+        <ul class="gallery_demo_unstyled">
+            <li><img class="active" src="http://ifashiontaste.appspot.com/image/1092/" alt="Flowing Rock" title="Flowing Rock Caption"/></li>
+            <li><img src="http://ifashiontaste.appspot.com/image/2002/" alt="Flowing Rock" title="Flowing Rock Caption"/></li>
+            <li><img src="http://ifashiontaste.appspot.com/image/2004/" alt="Flowing Rock" title="Flowing Rock Caption"/></li>
+            <li><img src="http://ifashiontaste.appspot.com/image/2006/" alt="Flowing Rock" title="Flowing Rock Caption"/></li>
+            <li><img src="http://ifashiontaste.appspot.com/image/2008/" alt="Flowing Rock" title="Flowing Rock Caption"/></li>
+            <li><img src="http://ifashiontaste.appspot.com/image/1128/" alt="Flowing Rock" title="Flowing Rock Caption"/></li>
+            <li><img src="http://ifashiontaste.appspot.com/image/2034/" alt="Flowing Rock" title="Flowing Rock Caption"/></li>
+            <li><img src="http://ifashiontaste.appspot.com/image/1126/" alt="Flowing Rock" title="Flowing Rock Caption"/></li>
+            <li><img src="http://ifashiontaste.appspot.com/image/2032/" alt="Flowing Rock" title="Flowing Rock Caption"/></li>
+            <li><img src="http://ifashiontaste.appspot.com/image/1123/" alt="Flowing Rock" title="Flowing Rock Caption"/></li>
+            <li><img src="http://ifashiontaste.appspot.com/image/1122/" alt="Flowing Rock" title="Flowing Rock Caption"/></li>
+            <li><img src="http://ifashiontaste.appspot.com/image/1120/" alt="Flowing Rock" title="Flowing Rock Caption"/></li>
+            <li><img src="http://ifashiontaste.appspot.com/image/1116/" alt="Flowing Rock" title="Flowing Rock Caption"/></li>
+            <li><img src="http://ifashiontaste.appspot.com/image/2025/" alt="Flowing Rock" title="Flowing Rock Caption"/></li>
+            <li><img src="http://ifashiontaste.appspot.com/image/1102/" alt="Flowing Rock" title="Flowing Rock Caption"/></li>
+        </ul>
+        <!--
+        <p>
+            <a href="#" onclick="$.galleria.prev(); return false;">&laquo; previous</a> | 
+            <a href="#" onclick="$.galleria.next(); return false;">next &raquo;</a>
+        </p>
+        -->
+        <div id="main_image"></div>
+    </div>
+</div>
+
+<div class="g240">
+    <div class="function">
+        <p>评论</p>
+        <ul>
+            <li><a href="">春天</a></li>
+            <li><a href="">春天</a></li>
+            <li><a href="">春天</a></li>
+            <li><a href="">春天</a></li>
+        </ul>
+    </div>
+    
+    <div class="function">
+        <p>Tag</p>
+        <ul>
+            <li><a href="">春天</a></li>
+            <li><a href="">夏天</a></li>
+            <li><a href="">秋天</a></li>
+            <li><a href="">冬天</a></li>
+        </ul>
+    </div>
+    
+    <div class="function">
+        <p>评论</p>
+        <ul>
+            <li><a href="">春天</a></li>
+            <li><a href="">春天</a></li>
+            <li><a href="">春天</a></li>
+            <li><a href="">春天</a></li>
+        </ul>
+    </div>
+</div>
+
+<div class="clear">&nbsp;</div>
+
+<div class="g960 tc"><p class="note">The photos are copywrited and taken from <a href="http://www.boston.com/bigpicture/2008/12/hubble_space_telescope_advent.html">©  boston big picture</a></p> </div>
+
+<div class="clear">&nbsp;</div>
+
+</div>
+</body>
+</html>
