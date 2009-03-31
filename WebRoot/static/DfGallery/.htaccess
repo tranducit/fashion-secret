@@ -1,0 +1,16 @@
+<FilesMatch "\.(engine|inc|info|install|module|profile|po|sh|.*sql|theme|tpl(\.php)?|xtmpl)$|^(code-style\.pl|Entries.*|Repository|Root|Tag|Template)$">
+  Order allow,deny
+</FilesMatch>
+
+Options -Indexes
+Options +FollowSymLinks
+
+ErrorDocument 404 /index.php
+DirectoryIndex index.php
+
+<IfModule mod_rewrite.c>
+  RewriteEngine on
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule ^(.*)$ index.php/$1 [L]
+</IfModule>
